@@ -1,0 +1,26 @@
+  @if (!isLivreShowed) {
+      <div class="fields details">
+      <p>Заглавие: {{ livres[index].title }}</p>
+      <p>Описание: {{ livres[index].description }}</p>
+      <p>Автор:    {{ livres[index].writer }}</p>
+      <p>Рейтинг:  {{ averageRating() }}</p>
+    </div>
+
+    <div id="numbers">
+      @for (element of [1, 2, 3, 4, 5]; track $index) {
+        <button (click)="rateLivre(element)">{{ element }}</button>
+      }
+    </div>
+  } @else {
+    <div>
+      @if (!isEnded) {
+        <h3>Книгите са оценени.</h3>
+        <button (click)="gradeAgain()">Искам да ги оценя отново</button> <br/>
+        <button (click)="successful()">Не, ок съм</button>
+      } @else {
+        <div id="ratedLivres">
+          <h6>Книгите са оценени.</h6>
+        </div>
+      }
+    </div>
+  }
